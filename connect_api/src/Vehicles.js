@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 import './App.css'
 
 
-export default function LaunchButtons () {
+export default function Vehicles () {
     return(
         
         <div>
-            <button inline="true"id="buttons"className="bluebelly">Movies</button>
+            <button inline="true"id="buttons"className="bluebelly">Vehicles</button>
         </div>
     
     )

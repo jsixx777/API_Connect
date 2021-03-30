@@ -1,7 +1,13 @@
 body {
   background-color: black;
 }
-
+.container {
+  display: block;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
 .App {
   display: flex;
   text-align: center;
@@ -17,11 +23,34 @@ body {
 .bluebelly {
   color:white;
   background-color: blue;
+  height: 40px;
+  font-size: 20px;
 }
 
 .position {
-  display: flex;
   text-align: center;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  
+  
+}
+
+
+.button-position {
+  display: inline;
+  
+  
+  
+  
+}
+#buttons {
+  display: inline;
+  
+}
+
+#launch {
+  margin-right: 20px;
+}
+
+#people {
+  margin-right: 20px;
 }
