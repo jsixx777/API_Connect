@@ -9,3 +9,19 @@ body {
   align-items: center;
   color: white;
 }
+
+.blocker {
+  display: block;
+}
+
+.bluebelly {
+  color:white;
+  background-color: blue;
+}
+
+.position {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}

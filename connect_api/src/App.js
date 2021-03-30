@@ -1,12 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import './App.css';
+import LaunchButtons from './LaunchButtons'
+import React from 'react';
+
+export default function App() {
   return (
+    <React.Fragment>
     <div className="App">
+      <div className="blocker">
       <h2>Shalom Yall</h2>
-    </div>
+      <h2>whatcha looking for today?</h2>
+      </div>
+      </div>
+      <div className="position">
+      <LaunchButtons  />
+      </div>
+      </React.Fragment>
+      
+      
+      
+      
+    
   );
 }
 
-export default App;
+
