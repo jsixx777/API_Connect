@@ -12,15 +12,14 @@ const BASE_URL = 'https://ghibliapi.herokuapp.com/films'
 
 
 export default function App() {
-  const [filmOptions, setFilmOptions] = useState()
-  console.log(filmOptions);
+  const [filmOptions, setFilmOptions] = useState([])
   useEffect(() => {
     fetch(BASE_URL)
     .then(res => res.json())
     .then(id => {
-      setFilmOptions([id])
-      //console.log(dat
-      //console.log(data[0].id)
+      setFilmOptions([])
+      
+      
       
     })
   },[]);

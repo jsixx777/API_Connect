@@ -3,16 +3,17 @@ import './App.css';
 
 
 export default function Films (props) {
+    
     const {
         filmOptions
     } = props
     return(
         <div>
-            <ul>
+            <select type="select">
             {filmOptions.map(option =>(
-                <li key={option} value={option}>{option}</li>
+                <option key={option} value={option}>{option}</option>
             ))}
-            </ul>
+            </select>
            
         </div>
     )
