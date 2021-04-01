@@ -2,15 +2,15 @@ import React, {  } from 'react';
 import './App.css';
 
 
-export default function Films (props) {
+export default function Vehicle (props) {
     const {
-        filmOptions
+        vehicleOptions
     } = props
     return(
         <div>
             <ul >
-            {filmOptions.map(option =>(
-                <option key={option.id} value={option}>{option.title}</option>
+            {vehicleOptions.map(option =>(
+                <option key={option.id} value={option}>{option.name}</option>
             ))}
             </ul>
            

@@ -1,24 +1,76 @@
 
 import './App.css';
 import Films from './Films';
+import People from './People';
+import Location from './Location';
+import Vehicle from './Vehicle';
 import React, { useEffect, useState } from 'react';
 
 const BASE_URL = 'https://ghibliapi.herokuapp.com/films'
+const BASE_PEOPLE_URL = 'https://ghibliapi.herokuapp.com/people'
+const BASE_LOCATION_URL = 'https://ghibliapi.herokuapp.com/locations'
+const BASE_VEHICLE_URL = 'https://ghibliapi.herokuapp.com/vehicles'
+
 
 
 
 export default function App() {
+  const[showFilms,setShowFilms] = useState(false)
+  const[showPeople,setShowPeople] = useState(false)
+  const[showLocation,setShowLocation] = useState(false)
+  const[showVehicle,setShowVehicle] = useState(false)
   const [filmOptions, setFilmOptions] = useState([])
+  const [peopleOptions, setPeopleOptions] = useState([])
+  const [locationOptions, setLocationOptions] = useState([])
+  const [vehicleOptions, setVehicleOptions] = useState([])
   useEffect(() => {
     fetch(BASE_URL)
     .then(res => res.json())
     .then(data => {
-      //console.log(data)
       setFilmOptions(data)
     })
   },[]);
 
-  
+  useEffect(() => {
+    fetch(BASE_PEOPLE_URL)
+    .then(res => res.json())
+    .then(data => {
+      setPeopleOptions(data)
+    })
+  },[]);
+
+  useEffect(() => {
+    fetch(BASE_LOCATION_URL)
+    .then(res => res.json())
+    .then(data => {
+      setLocationOptions(data)
+    })
+  },[]);
+
+  useEffect(() => {
+    fetch(BASE_VEHICLE_URL)
+    .then(res => res.json())
+    .then(data => {
+      setVehicleOptions(data)
+    })
+  },[]);
+
+
+  const handleMovies = () => {
+    setShowFilms(!showFilms)
+  }
+
+  const handlePeople = () => {
+    setShowPeople(!showPeople)
+  }
+
+  const handleLocation = () => {
+    setShowLocation(!showLocation)
+  }
+
+  const handleVehicle = () => {
+    setShowVehicle(!showVehicle)
+  }
   return (
     <div >
     <React.Fragment>
@@ -30,14 +82,23 @@ export default function App() {
       </div>
       </React.Fragment>
       <div className="position">
-      <button className="button-position">Movies</button>
-      <button className="button-position">People</button>
-      <button className="button-position">Locations</button>
-      <button className="button-position">Vehicles</button>
+      <button onClick={() => handleMovies()}className="button-position">Movies</button>
+      <button onClick={() => handlePeople()}className="button-position">People</button>
+      <button onClick={() => handleLocation()}className="button-position">Locations</button>
+      <button onClick={() => handleVehicle()}className="button-position">Vehicles</button>
       </div>
       <React.Fragment>
         <div className="films-style">
-          <Films filmOptions={filmOptions} />
+          {showFilms && <Films filmOptions={filmOptions} />}
+        </div>
+        <div className="films-style">
+          {showPeople && <People peopleOptions={peopleOptions} />}
+        </div>
+        <div className="films-style">
+          {showLocation && <Location locationOptions={locationOptions} />}
+        </div>
+        <div className="films-style">
+          {showVehicle && <Vehicle vehicleOptions={vehicleOptions} />}
         </div>
       </React.Fragment>
       </div>
