@@ -16,11 +16,9 @@ export default function App() {
   useEffect(() => {
     fetch(BASE_URL)
     .then(res => res.json())
-    .then(id => {
-      setFilmOptions([])
-      
-      
-      
+    .then(data => {
+      //console.log(data)
+      setFilmOptions(data)
     })
   },[]);
   return (

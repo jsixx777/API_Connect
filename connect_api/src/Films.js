@@ -9,11 +9,11 @@ export default function Films (props) {
     } = props
     return(
         <div>
-            <select type="select">
+            <ul >
             {filmOptions.map(option =>(
-                <option key={option} value={option}>{option}</option>
+                <option key={option.id} value={option}>{option.id}</option>
             ))}
-            </select>
+            </ul>
            
         </div>
     )
