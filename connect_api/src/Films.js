@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 
 export default function Films (props) {
+    const[hide,setHide] = useState(true)
     
     const {
         filmOptions
@@ -11,7 +12,7 @@ export default function Films (props) {
         <div>
             <ul >
             {filmOptions.map(option =>(
-                <option key={option.id} value={option}>{option.id}</option>
+                <option key={option.id} value={option}>{option.title}</option>
             ))}
             </ul>
            

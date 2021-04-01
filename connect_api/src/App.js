@@ -1,9 +1,5 @@
 
 import './App.css';
-import LaunchButtons from './LaunchButtons';
-import PeopleButton from './PeopleButton';
-import Locations from './Locations';
-import Vehicles from './Vehicles';
 import Films from './Films';
 import React, { useEffect, useState } from 'react';
 
@@ -21,6 +17,8 @@ export default function App() {
       setFilmOptions(data)
     })
   },[]);
+
+  
   return (
     <div >
     <React.Fragment>
@@ -31,26 +29,22 @@ export default function App() {
       </div>
       </div>
       </React.Fragment>
-      <React.Fragment>
-        <div className="position">
-          <div className="button-position">
-  <LaunchButtons />
-  <PeopleButton />
-  <Locations />
-  <Vehicles />
-  </div>
-  </div>
-      </React.Fragment>
+      <button>Movies</button>
+      <button>People</button>
+      <button>Locations</button>
+      <button>Vehicles</button>
       <React.Fragment>
         <div className="films-style">
-          <Films 
-          filmOptions={filmOptions}
-          />
+          <Films filmOptions={filmOptions} />
         </div>
       </React.Fragment>
       </div>
       
-      
+      //hide the display of all films, until someone hits the movies button
+      //when they hit the buttton, the all films appears, until refreshed, for now
+      //i would think that means to put something in front of <Films>, like a function
+      //make a function above the return, that would be invoked by the buttton push
+      //make reference to that buuton at the component level.  that's my guess for now. 
       
       
       
