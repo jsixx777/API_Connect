@@ -29,10 +29,12 @@ export default function App() {
       </div>
       </div>
       </React.Fragment>
-      <button>Movies</button>
-      <button>People</button>
-      <button>Locations</button>
-      <button>Vehicles</button>
+      <div className="position">
+      <button className="button-position">Movies</button>
+      <button className="button-position">People</button>
+      <button className="button-position">Locations</button>
+      <button className="button-position">Vehicles</button>
+      </div>
       <React.Fragment>
         <div className="films-style">
           <Films filmOptions={filmOptions} />
