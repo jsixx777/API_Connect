@@ -4,16 +4,22 @@ import './App.css';
 
 export default function Films (props) {
     const {
-        filmOptions
+        filmOptions,
+        //peopleOptions,
+      //  locationOptions,
+      //  vehicleOptions
     } = props
     return(
         <div>
+           
             <ul >
-            {filmOptions.map(option =>(
-                <option key={option.id} value={option}>{option.title}{option.name}</option>
-                
-            ))}
-            </ul>
+            {filmOptions.map(option => {
+               return <option key={option.id} value={option}>{option.title}</option>
+              
+})}
+           </ul>  
+           
+            
            
         </div>
     )
