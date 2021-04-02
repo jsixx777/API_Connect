@@ -7,10 +7,10 @@
 
 
 import './App.css';
-import Films from './Films';
-import People from './People';
-import Location from './Location';
-import Vehicle from './Vehicle';
+//import Films from './Films';
+//import People from './People';
+//import Location from './Location';
+//import Vehicle from './Vehicle';
 import React, { useEffect, useState } from 'react';
 
 
@@ -21,25 +21,26 @@ import React, { useEffect, useState } from 'react';
 
 
 export default function App() {
-  const[showFilms,setShowFilms] = useState(false)
-  const[showPeople,setShowPeople] = useState(false)
-  const[showLocation,setShowLocation] = useState(false)
-  const[showVehicle,setShowVehicle] = useState(false)
-  const [filmOptions, setFilmOptions] = useState([])
+  //const[showFilms,setShowFilms] = useState(false)
+  //const[showPeople,setShowPeople] = useState(false)
+  //const[showLocation,setShowLocation] = useState(false)
+  //const[showVehicle,setShowVehicle] = useState(false)
+  const [filmOptions, setFilmOptions] = useState('films')
  // const [items, setItems] = useState([])
   const [peopleOptions, setPeopleOptions] = useState([])
   const [locationOptions, setLocationOptions] = useState([])
   const [vehicleOptions, setVehicleOptions] = useState([])
-  useEffect(() => {
-    fetch(`https://ghibliapi.herokuapp.com/films`)
+   useEffect(() => {
+     setFilmOptions('films')
+    fetch(`https://ghibliapi.herokuapp.com/${filmOptions}`)
     .then(res => res.json())
-    .then(data => setFilmOptions(data))
+    .then(data => console.log(data))
   },[filmOptions]);
 
 
 
   useEffect(() => {
-    fetch(`https://ghibliapi.herokuapp.com/people`)
+    fetch(`https://ghibliapi.herokuapp.com/${peopleOptions}`)
     .then(res => res.json())
     .then(data => {
       setPeopleOptions(data)
@@ -47,7 +48,7 @@ export default function App() {
   },[peopleOptions]);
 
   useEffect(() => {
-    fetch(`https://ghibliapi.herokuapp.com/locations`)
+    fetch(`https://ghibliapi.herokuapp.com/${locationOptions}`)
     .then(res => res.json())
     .then(data => {
       setLocationOptions(data)
@@ -55,29 +56,24 @@ export default function App() {
   },[locationOptions]);
 
   useEffect(() => {
-    fetch(`https://ghibliapi.herokuapp.com/vehicles`)
+    fetch(`https://ghibliapi.herokuapp.com/${vehicleOptions}`)
     .then(res => res.json())
     .then(data => {
       setVehicleOptions(data)
     })
+    //return () => {
+    //  setLocationOptions(false)
+    //  setFilmOptions(false)
+    //  setPeopleOptions(false)
+    //  console.log('this was first')
+    //}
+    //return () => {
+    //  console.log('this was second')
+   // }
   },[vehicleOptions]);
 
 
-  const handleMovies = () => {
-  setShowFilms(!showFilms)
-}
-
-  const handlePeople = () => {
-    setShowPeople(!showPeople)
-    }
-
-  const handleLocation = () => {
-    setShowLocation(!showLocation)
-  }
-
-  const handleVehicle = () => {
-    setShowVehicle(!showVehicle)
-  }
+ 
   return (
     <div >
     <React.Fragment>
@@ -89,29 +85,19 @@ export default function App() {
       </div>
       </React.Fragment>
       <div className="position">
-      <button onClick={() => handleMovies()}className="button-position">Movies</button>
-      <button onClick={() => handlePeople()}className="button-position">People</button>
-      <button onClick={() => handleLocation()}className="button-position">Locations</button>
-      <button onClick={() => handleVehicle()}className="button-position">Vehicles</button>
+      <button onClick={() => setFilmOptions('films')}className="button-position">Movies</button>
+      <button onClick={() => setPeopleOptions('people')}className="button-position">People</button>
+      <button onClick={() => setLocationOptions('locations')}className="button-position">Locations</button>
+      <button onClick={() => setVehicleOptions('vehicles')}className="button-position">Vehicles</button>
       </div>
       <React.Fragment>
         <div>
         <div className="films-style">
-          {showFilms && <Films filmOptions={filmOptions}/>}
-          {showPeople && <People peopleOptions={peopleOptions}/>}
-          {showLocation && <Location locationOptions={locationOptions}/>}
-          {showVehicle && <Vehicle vehicleOptions={vehicleOptions} />}
+        <h2>{filmOptions}</h2>
         </div>
         </div>
       </React.Fragment>
       </div>
-      
-       
-      
-      
-      
-      
-    
   );
 }
 
