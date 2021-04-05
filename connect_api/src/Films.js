@@ -11,16 +11,12 @@ export default function Films (props) {
     } = props
     return(
         <div>
-           
             <ul >
             {filmOptions.map(option => {
-               return <option key={option.id} value={option}>{option.id}</option>
+               return <option key={option.id} value={option}>{option.title}</option>
               
 })}
-           </ul>  
-           
-            
-           
+           </ul>        
         </div>
     )
 }

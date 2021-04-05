@@ -9,7 +9,7 @@ export default function People (props) {
     return(
         <div>
             <ul >
-            {peopleOptions.map(option =>(
+            {peopleOptions.map(option => (
                 <option key={option.id} value={option}>{option.name}</option>
             ))}
             </ul>

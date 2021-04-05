@@ -9,9 +9,11 @@ export default function Location (props) {
     return(
         <div>
             <ul >
-            {locationOptions.map(option =>(
-                <option key={option.id} value={option}>{option.name}</option>
-            ))}
+            {locationOptions.map(option =>{
+              return  <option key={option.id} value={option}>{option.name}</option>
+            
+            
+    })}
             </ul>
            
         </div>
