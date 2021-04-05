@@ -57,19 +57,45 @@ export default function App() {
     },[])
 
     const handleMovies = () => {
+      if(showLocation || showPeople || showVehicle === true) {
+        setShowLocation(false)
+        setShowPeople(false)
+        setShowVehicle(false)
+      }
       setShowFilms(!showFilms)
+
+      
+
     }
 
     const handlePeople = () => {
-      console.log('ive been clicked')
       setShowPeople(!showPeople)
+      if(showFilms || showLocation || showVehicle === true) {
+        setShowFilms(false)
+        setShowLocation(false)
+        setShowVehicle(false)
+      }
+     
+      
     }
 
     const handleLocation = () => {
+      if(showFilms || showPeople || showVehicle === true) {
+      setShowFilms(false)
+      setShowPeople(false)
+      setShowVehicle(false)
+      }
       setShowLocation(!showLocation)
+      
     }
 
     const handleVehicle = () => {
+      if(showFilms || showPeople || showLocation === true) {
+        setShowLocation(false)
+        setShowPeople(false)
+        setShowFilms(false)
+      }
+      
       setShowVehicle(!showVehicle)
     }
     
