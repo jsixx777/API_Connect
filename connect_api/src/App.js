@@ -27,9 +27,9 @@ export default function App() {
   //const[showVehicle,setShowVehicle] = useState(false)
   const [filmOptions, setFilmOptions] = useState('films')
  // const [items, setItems] = useState([])
-  const [peopleOptions, setPeopleOptions] = useState([])
-  const [locationOptions, setLocationOptions] = useState([])
-  const [vehicleOptions, setVehicleOptions] = useState([])
+ // const [peopleOptions, setPeopleOptions] = useState([])
+  //const [locationOptions, setLocationOptions] = useState([])
+ // const [vehicleOptions, setVehicleOptions] = useState([])
    useEffect(() => {
      setFilmOptions('films')
     fetch(`https://ghibliapi.herokuapp.com/${filmOptions}`)
@@ -39,7 +39,8 @@ export default function App() {
 
 
 
-  useEffect(() => {
+  /*
+ useEffect(() => {
     fetch(`https://ghibliapi.herokuapp.com/${peopleOptions}`)
     .then(res => res.json())
     .then(data => {
@@ -61,6 +62,7 @@ export default function App() {
     .then(data => {
       setVehicleOptions(data)
     })
+    
     //return () => {
     //  setLocationOptions(false)
     //  setFilmOptions(false)
@@ -73,7 +75,7 @@ export default function App() {
   },[vehicleOptions]);
 
 
- 
+ */
   return (
     <div >
     <React.Fragment>
@@ -86,9 +88,9 @@ export default function App() {
       </React.Fragment>
       <div className="position">
       <button onClick={() => setFilmOptions('films')}className="button-position">Movies</button>
-      <button onClick={() => setPeopleOptions('people')}className="button-position">People</button>
-      <button onClick={() => setLocationOptions('locations')}className="button-position">Locations</button>
-      <button onClick={() => setVehicleOptions('vehicles')}className="button-position">Vehicles</button>
+      <button onClick={() => setFilmOptions('people')}className="button-position">People</button>
+      <button onClick={() => setFilmOptions('locations')}className="button-position">Locations</button>
+      <button onClick={() => setFilmOptions('vehicles')}className="button-position">Vehicles</button>
       </div>
       <React.Fragment>
         <div>
