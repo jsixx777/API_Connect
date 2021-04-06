@@ -8,7 +8,7 @@
 
 import './App.css';
 import People from './components/people/People';
-import Location from './Location';
+import Location from './components/location/Location';
 import Vehicle from './Vehicle';
 import React, { useEffect, useState } from 'react';
 import Films from './components/films/Films';
@@ -19,21 +19,12 @@ export default function App() {
   const[showLocation,setShowLocation] = useState(false)
   const[showVehicle,setShowVehicle] = useState(false)
   //const [items, setItems] = useState()
-  
-  const [locationOptions, setLocationOptions] = useState([])
   const [vehicleOptions, setVehicleOptions] = useState([])
 
 
  
 
-  useEffect(() => {
-    fetch(`https:ghibliapi.herokuapp.com/locations`)
-    .then(res => res.json())
-    .then(data => {
-      setLocationOptions(data)
-    })
-  },[]);
-
+  
   useEffect(() => {
     fetch(`https://ghibliapi.herokuapp.com/vehicles`)
     .then(res => res.json())
@@ -125,7 +116,7 @@ export default function App() {
           {showPeople && <People />}
           </div>
           <div className="films-style">
-          {showLocation && <Location locationOptions={locationOptions} />}
+          {showLocation && <Location />}
           </div>
           <div className="films-style">
           {showVehicle && <Vehicle vehicleOptions={vehicleOptions} />}
