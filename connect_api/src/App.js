@@ -9,7 +9,7 @@
 import './App.css';
 import People from './components/people/People';
 import Location from './components/location/Location';
-import Vehicle from './Vehicle';
+import Vehicle from './components/vehicle/Vehicle';
 import React, { useEffect, useState } from 'react';
 import Films from './components/films/Films';
 
