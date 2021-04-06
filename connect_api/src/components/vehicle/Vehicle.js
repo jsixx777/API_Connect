@@ -4,7 +4,7 @@ import VehicleChoiceTypeSelector from './VehicleChoiceTypeSelector';
 
 export default function Vehicle (props) {
     const[vehicle,setVehicle] = useState([])
-    const[selectedKeyNameInData, setSelectedKeyNameInData] = useState('name')
+    const[selectedKeyNameInData, setSelectedKeyNameInData] = useState()
 
     useEffect(() => {
         fetch(`https://ghibliapi.herokuapp.com/vehicles`)

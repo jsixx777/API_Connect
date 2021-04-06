@@ -3,6 +3,10 @@ import React from 'react';
 export default function VehicleChoiceTypeSelector ({ handleVehicleChangeChoiceType }) {
     const vehicleChoice = [
         {
+            displayName: "",
+            keyNameInData: ""
+        },
+        {
             displayName: 'Name',
             keyNameInData: 'name'
         },

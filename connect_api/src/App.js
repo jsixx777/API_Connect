@@ -2,9 +2,9 @@
 //To Do List
 //it appears i'm calling the api constantly.  is there a better way? --done
 //when i hit movies button, an h2 perhaps says --done
-//what interests you about the movies?
-//option selector appears, and they can select from what the api offers
-//after selection, then as before that option lists out, like all id's, all names, all titles, etc
+//what interests you about the movies? --done
+//option selector appears, and they can select from what the api offers --done
+//after selection, then as before that option lists out, like all id's, all names, all titles, etc -- done
 
 import './App.css';
 import People from './components/people/People';
