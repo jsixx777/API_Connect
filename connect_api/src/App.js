@@ -10,7 +10,7 @@ import './App.css';
 import People from './components/people/People';
 import Location from './components/location/Location';
 import Vehicle from './components/vehicle/Vehicle';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Films from './components/films/Films';
 
 export default function App() {
@@ -19,19 +19,8 @@ export default function App() {
   const[showLocation,setShowLocation] = useState(false)
   const[showVehicle,setShowVehicle] = useState(false)
   //const [items, setItems] = useState()
-  const [vehicleOptions, setVehicleOptions] = useState([])
-
-
- 
-
   
-  useEffect(() => {
-    fetch(`https://ghibliapi.herokuapp.com/vehicles`)
-    .then(res => res.json())
-    .then(data => {
-      setVehicleOptions(data)
-    })
-    },[])
+
 
     const handleMovies = () => {
       if(showLocation || showPeople || showVehicle === true) {
@@ -119,7 +108,7 @@ export default function App() {
           {showLocation && <Location />}
           </div>
           <div className="films-style">
-          {showVehicle && <Vehicle vehicleOptions={vehicleOptions} />}
+          {showVehicle && <Vehicle />}
           </div>
         </div >
       </React.Fragment>
