@@ -30,16 +30,15 @@ body {
 .position {
   text-align: center;
   width: 100%;
-  
-  
-  
 }
 
 .films-style {
   color: white;
   text-align: center;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
   display: flex;
+  flex-direction: column;
 }
 
 

@@ -1,36 +1,28 @@
 
 //To Do List
-//let only one button render at a time.  if another is called, the other goes away
-//can we get away with one useEffect and call each button only when called?
-
-
-
+//it appears i'm calling the api constantly.  is there a better way? --done
+//when i hit movies button, an h2 perhaps says --done
+//what interests you about the movies?
+//option selector appears, and they can select from what the api offers
+//after selection, then as before that option lists out, like all id's, all names, all titles, etc
 
 import './App.css';
-import Films from './Films';
 import People from './People';
 import Location from './Location';
 import Vehicle from './Vehicle';
 import React, { useEffect, useState } from 'react';
+import Films from './components/films/Films';
 
 export default function App() {
   const[showFilms,setShowFilms] = useState(false)
   const[showPeople,setShowPeople] = useState(false)
   const[showLocation,setShowLocation] = useState(false)
   const[showVehicle,setShowVehicle] = useState(false)
-  const [filmOptions, setFilmOptions] = useState([])
- // const [items, setItems] = useState([])
+  //const [items, setItems] = useState()
   const [peopleOptions, setPeopleOptions] = useState([])
   const [locationOptions, setLocationOptions] = useState([])
   const [vehicleOptions, setVehicleOptions] = useState([])
 
-  
-   useEffect(() => {
-    fetch(`https://ghibliapi.herokuapp.com/films`)
-    .then(res => res.json())
-    .then(data => setFilmOptions(data))
-    
-  },[]);
 
  useEffect(() => {
     fetch(`https://ghibliapi.herokuapp.com/people`)
@@ -38,7 +30,7 @@ export default function App() {
     .then(data => {
       setPeopleOptions(data)
     })
-  },[peopleOptions]);
+  },[]);
 
   useEffect(() => {
     fetch(`https:ghibliapi.herokuapp.com/locations`)
@@ -63,9 +55,6 @@ export default function App() {
         setShowVehicle(false)
       }
       setShowFilms(!showFilms)
-
-      
-
     }
 
     const handlePeople = () => {
@@ -75,8 +64,6 @@ export default function App() {
         setShowLocation(false)
         setShowVehicle(false)
       }
-     
-      
     }
 
     const handleLocation = () => {
@@ -86,7 +73,6 @@ export default function App() {
       setShowVehicle(false)
       }
       setShowLocation(!showLocation)
-      
     }
 
     const handleVehicle = () => {
@@ -111,6 +97,14 @@ export default function App() {
   //},[vehicleOptions]);
 
 
+  //---------------------------------------------------
+  //this is to experiment with showing the opions as opposed to simply showing all movies
+  //once determined, move this back into return logic
+
+//<div className="films-style">
+ //       {showFilms && <Films filmOptions={filmOptions} />}
+ //       </div>
+
  
   return (
     <div >
@@ -130,19 +124,18 @@ export default function App() {
       </div>
       <React.Fragment>
         <div>
-        <div className="films-style">
-        {showFilms && <Films filmOptions={filmOptions} />}
-        </div>
-        <div className="films-style">
-        {showPeople && <People peopleOptions={peopleOptions} />}
-        </div>
-        <div className="films-style">
-        {showLocation && <Location locationOptions={locationOptions} />}
-        </div>
-        <div className="films-style">
-        {showVehicle && <Vehicle vehicleOptions={vehicleOptions} />}
-        </div>
-       
+          <div className="films-style">
+          {showFilms && <Films />}
+          </div>
+          <div className="films-style">
+          {showPeople && <People peopleOptions={peopleOptions} />}
+          </div>
+          <div className="films-style">
+          {showLocation && <Location locationOptions={locationOptions} />}
+          </div>
+          <div className="films-style">
+          {showVehicle && <Vehicle vehicleOptions={vehicleOptions} />}
+          </div>
         </div >
       </React.Fragment>
       </div>
