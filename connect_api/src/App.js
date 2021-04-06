@@ -7,7 +7,7 @@
 //after selection, then as before that option lists out, like all id's, all names, all titles, etc
 
 import './App.css';
-import People from './People';
+import People from './components/people/People';
 import Location from './Location';
 import Vehicle from './Vehicle';
 import React, { useEffect, useState } from 'react';
@@ -19,18 +19,12 @@ export default function App() {
   const[showLocation,setShowLocation] = useState(false)
   const[showVehicle,setShowVehicle] = useState(false)
   //const [items, setItems] = useState()
-  const [peopleOptions, setPeopleOptions] = useState([])
+  
   const [locationOptions, setLocationOptions] = useState([])
   const [vehicleOptions, setVehicleOptions] = useState([])
 
 
- useEffect(() => {
-    fetch(`https://ghibliapi.herokuapp.com/people`)
-    .then(res => res.json())
-    .then(data => {
-      setPeopleOptions(data)
-    })
-  },[]);
+ 
 
   useEffect(() => {
     fetch(`https:ghibliapi.herokuapp.com/locations`)
@@ -128,7 +122,7 @@ export default function App() {
           {showFilms && <Films />}
           </div>
           <div className="films-style">
-          {showPeople && <People peopleOptions={peopleOptions} />}
+          {showPeople && <People />}
           </div>
           <div className="films-style">
           {showLocation && <Location locationOptions={locationOptions} />}

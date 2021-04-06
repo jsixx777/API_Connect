@@ -16,7 +16,7 @@ const peopleChoiceTypes = [
     },
 ];
 const peopleChoiceTypesFormatted = peopleChoiceTypes.map(peopleChoiceType => (
-    <option key={peopleChoiceTypes.keyNameInData} value={peopleChoiceTypes.keyNameInData}>{peopleChoiceTypes.displayName}</option>
+    <option key={peopleChoiceType.keyNameInData} value={peopleChoiceType.keyNameInData}>{peopleChoiceType.displayName}</option>
 ));
 
 function handleSelection(event) {
